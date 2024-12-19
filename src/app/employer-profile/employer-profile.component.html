@@ -7,8 +7,16 @@
 @if (user$) {
 <mat-card class="profile-card">
   <mat-card-header>
-    <!-- <mat-card-title class="profile-name">{{ user$.name }}</mat-card-title> -->
-    <mat-card-title class="profile-name"> <mat-icon>person</mat-icon>Name - {{ user$.name }}</mat-card-title>
+    <div class="profile-header">
+      <img
+        src="http://localhost:8080/api/uploads/pfp/{{ user$.id }}"
+        alt="Profile Picture"
+        class="profile-pic"
+      />
+      <mat-card-title class="profile-name">
+        {{ user$.name }}
+      </mat-card-title>
+    </div>
   </mat-card-header>
   <br>
   <br>

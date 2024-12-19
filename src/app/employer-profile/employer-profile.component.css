@@ -1,7 +1,7 @@
 .profile-card {
   max-width: 400px;
   margin: 20px auto;
-  height: 400px;
+  height: 450px;
 }
 
 .profile-name {
@@ -52,4 +52,25 @@ button {
 
 form {
   text-align: center;
+}
+
+
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 50px; /* Match the display size exactly */
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image fills the area properly */
+  border: 2px solid #ccc;
+  margin-right: 10px;
+}
+
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 500;
 }
