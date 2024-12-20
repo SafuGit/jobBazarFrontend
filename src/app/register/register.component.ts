@@ -7,6 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { Router, RouterModule } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { error } from 'console';
+import { FilesService } from '../services/files.service';
 
 @Component({
   selector: 'app-register',
@@ -24,9 +25,10 @@ import { error } from 'console';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  selectedFile: File | null = null;
   isBrowser: any;
 
-  constructor(private fb: FormBuilder, private serviceRouter: Router, private usersService: UsersService) {
+  constructor(private fb: FormBuilder, private serviceRouter: Router, private usersService: UsersService, private filesService: FilesService) {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       phone_number: ['', Validators.required],
@@ -45,19 +47,36 @@ export class RegisterComponent {
       if (elem != null) {
         elem.style.display = "none";
       }
+      console.log(this.selectedFile);
     }
+  }
+
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
   }
 
   onSubmit() {
     if (this.registerForm.valid) {
+      let e = false;
       const formData = this.registerForm.value;
       console.log(formData);
       this.usersService.registerUser(formData).subscribe(() => {
         console.log("success");
-        this.router.navigate(['/login']);
+        if (this.selectedFile != null) {
+          const fileData = new FormData();
+          fileData.append('file', this.selectedFile);
+          this.usersService.getUserByUsername(formData.username).subscribe((data: any) => {
+            this.filesService.registerUserImage(fileData, data.id).subscribe((data: any) => {
+              console.log(data);
+              this.router.navigate(['/login']);
+            })
+          })
+        }
       }, (error) => {
         console.log(error);
       })
+
     }
   }
 }

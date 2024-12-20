@@ -30,6 +30,15 @@
       <mat-label>Password</mat-label>
       <input matInput formControlName="password">
     </mat-form-field>
+    <!-- <mat-form-field> -->
+  <div>
+    <button mat-stroked-button (click)="fileInput.click();$event.preventDefault()">Upload Profile Picture</button>
+    <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)" accept="image/*">
+  </div>
+
+  <br>
+
+    <!-- </mat-form-field> -->
     <div class="mat-typography">
       <a href="/login" class="loginPageLink">Already have an account?</a>
     </div>
