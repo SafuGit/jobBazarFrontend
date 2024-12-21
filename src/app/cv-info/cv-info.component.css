@@ -1,7 +1,7 @@
 .cv-container {
-  max-width: 700px;  /* Reduced container width */
+  max-width: 700px;
   margin: 0 auto;
-  padding: 15px;     /* Reduced padding */
+  padding: 15px;
   border-radius: 8px;
 }
 
@@ -84,4 +84,28 @@ mat-error {
 /* Placeholder text (optional) */
 .custom-mat-form-field input[readonly]::placeholder {
   opacity: 0.6; /* Slightly fade the placeholder to show it's read-only */
+}
+
+.button-group {
+  display: flex; /* Align items in a row */
+  justify-content: center; /* Center the buttons */
+  gap: 15px; /* Add spacing between the buttons */
+  margin-top: 15px;
+}
+
+button {
+  width: 250px; /* Allow buttons to size dynamically */
+  padding: 8px 16px; /* Adjust padding for a balanced look */
+}
+
+a {
+  width: 250px;
+  padding: 8px 16px;
+}
+
+.container2 {
+  display: flex; /* Enable flexbox on the container */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center items horizontally */
+  width: 100%; /* Ensure it spans full width of the parent */
 }

@@ -44,6 +44,8 @@
   <mat-card-actions>
     <!-- <button mat-button [href]="'mailto:' + user$.email">Send Email</button> -->
     <button mat-flat-button class="postBtn" (click)="editProfile(dialogContent)"> <mat-icon>edit</mat-icon>Edit Profile</button>
+    <button mat-flat-button (click)="fileInput.click();$event.preventDefault()" color="warn" class="postBtn"><mat-icon>picture_in_picture</mat-icon> Change Picture</button>
+    <input #fileInput type="file" style="display: none" (change)="changePicture($event)" accept="image/*">
   </mat-card-actions>
 </mat-card>
 }

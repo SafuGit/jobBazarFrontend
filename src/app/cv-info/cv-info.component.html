@@ -86,9 +86,20 @@
         </mat-error>
       </mat-form-field>
 
-      <button mat-flat-button color="primary" type="submit" [disabled]="cvForm.invalid">
-        {{ cvData ? 'Update CV' : 'Create CV' }}
-      </button>
+    <div class="container2">
+      <div class="button-group">
+        <button mat-flat-button color="primary" type="submit" [disabled]="cvForm.invalid">
+          {{ cvData ? 'Update CV' : 'Create CV' }}
+        </button>
+
+        <button mat-flat-button (click)="fileInput.click();$event.preventDefault()" color="warn" class="postBtn">
+          Upload CV File
+        </button>
+
+        <a mat-flat-button href="http://localhost:8080/api/uploads/pdf/{{ user$.id }}" target="_blank"> View CV </a>
+      </div>
+    </div>
+      <input #fileInput type="file" style="display: none" (change)="uploadCV($event)" accept="application/*">
     </form>
   </div>
   <br> <br> <br> <br> <br>

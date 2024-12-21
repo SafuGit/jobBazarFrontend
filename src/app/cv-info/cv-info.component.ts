@@ -9,6 +9,7 @@ import { Store } from '@ngxs/store';
 import { UserState } from '../store/users.state';
 import { Router } from '@angular/router';
 import { EmployeeFooterComponent } from "../employee-footer/employee-footer.component";
+import { FilesService } from '../services/files.service';
 
 @Component({
   selector: 'app-cv-info',
@@ -29,8 +30,9 @@ export class CvInfoComponent {
   cvData: any;
   user$: any;
   isAuthenticated$: any;
+  selectedFile: File | null = null;
 
-  constructor(private cvService: CoverletterService, private fb: FormBuilder, private store: Store, private serviceRouter: Router) {
+  constructor(private cvService: CoverletterService, private fb: FormBuilder, private store: Store, private serviceRouter: Router, private filesService: FilesService) {
     this.cvForm = this.fb.group({
       name: ['', Validators.required],
       phone_number: ['', [Validators.required]],
@@ -117,6 +119,21 @@ export class CvInfoComponent {
           location.reload();
         })
       }
+    }
+  }
+
+  uploadCV(event: any): void {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+
+    if (this.selectedFile != null) {
+      const fileData = new FormData();
+      fileData.append('file', this.selectedFile);
+      this.filesService.registerCvFile(fileData, this.user$.id).subscribe((data: any) => {
+        console.log(data);
+        location.reload();
+      })
+      location.reload();
     }
   }
 }
