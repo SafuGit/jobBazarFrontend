@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EmployeeFooterComponent } from "../employee-footer/employee-footer.component";
+import { FilesService } from '../services/files.service';
 
 @Component({
   selector: 'app-profile',
@@ -40,8 +41,9 @@ import { EmployeeFooterComponent } from "../employee-footer/employee-footer.comp
 })
 export class ProfileComponent {
   postForm: FormGroup
+  selectedFile: File | null = null;
 
-  constructor(private store: Store, private usersService: UsersService, private serviceRouter: Router, private fb: FormBuilder, private dialog: MatDialog) {
+  constructor(private store: Store, private usersService: UsersService, private serviceRouter: Router, private fb: FormBuilder, private dialog: MatDialog, private filesService: FilesService) {
     this.store = store;
 
     this.postForm = this.fb.group({
@@ -121,6 +123,21 @@ export class ProfileComponent {
           location.reload();
         })
       })
+    }
+  }
+
+  changePicture(event: any): void {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+
+    if (this.selectedFile != null) {
+      const fileData = new FormData();
+      fileData.append('file', this.selectedFile);
+      this.filesService.registerUserImage(fileData, this.user$.id).subscribe((data) => {
+        console.log(data);
+        location.reload();
+      })
+      location.reload();
     }
   }
 }
