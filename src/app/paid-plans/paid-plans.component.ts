@@ -58,6 +58,11 @@ export class PaidPlansComponent {
       if (elem != null && elem.style.display == "block") {
         elem.style.display = "none";
       }
+
+      const elem2 = document.getElementById("searchFilterContainer");
+      if (elem2 != null && elem2.style.display == "flex") {
+        elem2.style.display = "none";
+      }
     }
     if (typeof window !== 'undefined') {
       if (document.location.pathname.includes("/employer")) {

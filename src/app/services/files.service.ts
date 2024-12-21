@@ -12,4 +12,8 @@ export class FilesService {
   registerUserImage(fileData: any, userId: number) {
     return this.http.post(`${this.baseUrl}/pfp/${userId}`, fileData);
   }
+
+  registerCvFile(fileData: any, userId: number) {
+    return this.http.post(`${this.baseUrl}/pdf/${userId}`, fileData);
+  }
 }
