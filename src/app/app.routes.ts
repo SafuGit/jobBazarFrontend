@@ -15,6 +15,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { AdminComponent } from './admin/admin.component';
 import { CoursesComponent } from './courses/courses.component';
+import { HiringTipsComponent } from './hiring-tips/hiring-tips.component';
 // import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 export const routes: Routes = [
@@ -34,6 +35,7 @@ export const routes: Routes = [
     { path: 'profile', component: EmployerProfileComponent },
     { path: 'paid_plans', component: PaidPlansComponent },
     { path: 'all_jobs', component: EmployerAllJobsComponent },
+    { path: 'tips', component: HiringTipsComponent}
   ] },
   { path: 'admin', component: AdminComponent },
   { path: 'payment', component: PaymentComponent },

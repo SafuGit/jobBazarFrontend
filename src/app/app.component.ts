@@ -41,6 +41,7 @@ export class AppComponent {
   allJobs: any;
   allJobsText: any;
   employeeNotif: boolean = false;
+  employerNotif: boolean = false;
   bgImage: any;
   sideNavColor: any;
   readonly menuTrigger = viewChild.required(MatMenuTrigger);
@@ -89,6 +90,7 @@ export class AppComponent {
             this.employeeNotif = false;
             this.bgImage = "employerContentBg"
             this.sideNavColor = "employerSidenav"
+            this.employerNotif = true;
           }
           else if (document.location.pathname == "/employee") {
             const elem = document.getElementById("sidenav");
@@ -107,6 +109,7 @@ export class AppComponent {
             this.employeeNotif = true;
             this.bgImage = "employeeContentBg"
             this.sideNavColor = "employeeSidenav"
+            this.employerNotif = false;
           }
 
           else if (document.location.pathname == "/login" || document.location.pathname == "/register") {
@@ -144,6 +147,7 @@ export class AppComponent {
         this.employeeNotif = false;
         this.bgImage = "employerContentBg"
         this.sideNavColor = "employerSidenav"
+        this.employerNotif = true;
       }
       else if (document.location.pathname.includes("/employee")) {
         const elem = document.getElementById("sidenav");
@@ -162,6 +166,7 @@ export class AppComponent {
         this.employeeNotif = true;
         this.bgImage = "employeeContentBg"
         this.sideNavColor = "employeeSidenav"
+        this.employerNotif = false;
       }
 
       else if (document.location.pathname == "/login" || document.location.pathname == "/register") {

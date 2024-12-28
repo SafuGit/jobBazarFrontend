@@ -13,6 +13,10 @@
           <hr>
           <a id="nav5" mat-list-item routerLink="{{plansLink}}"><mat-icon>attach_money</mat-icon> <b><u>Paid Plans</u></b></a>
           <hr>
+          @if (employerNotif) {
+            <a id="nav6" mat-list-item routerLink="employer/tips"><mat-icon>notifications</mat-icon> <b><u>Hiring Tips</u></b></a>
+            <hr>
+          }
           @if (employeeNotif) {
             <a id="nav6" mat-list-item routerLink="employee/notifications"><mat-icon>notifications</mat-icon> <b><u>Notifications</u></b></a>
             <hr>
