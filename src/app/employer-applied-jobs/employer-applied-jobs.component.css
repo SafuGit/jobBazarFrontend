@@ -101,3 +101,23 @@ mat-form-field input {
   margin: 0 auto !important;
 
 }
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  /* border-radius: 50%; */
+  object-fit: cover;
+  border: 2px solid #ccc;
+  margin-right: 10px;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 500;
+}

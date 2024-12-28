@@ -14,6 +14,7 @@ import { EmployerAllJobsComponent } from './employer-all-jobs/employer-all-jobs.
 import { PaymentComponent } from './payment/payment.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { AdminComponent } from './admin/admin.component';
+import { CoursesComponent } from './courses/courses.component';
 // import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 export const routes: Routes = [
@@ -25,7 +26,8 @@ export const routes: Routes = [
     { path: 'paid_plans', component: PaidPlansComponent },
     { path: 'applied_jobs', component: AppliedJobsComponent},
     { path: 'cvInfo', component: CvInfoComponent},
-    { path: 'notifications', component: NotificationsComponent}
+    { path: 'notifications', component: NotificationsComponent},
+    { path: 'courses', component: CoursesComponent}
   ] },
   { path: 'employer', component: EmployerComponent, children: [
     { path: 'job_apps', component: EmployerAppliedJobsComponent },

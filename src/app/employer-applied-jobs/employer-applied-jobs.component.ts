@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FooterComponent } from "../footer/footer.component";
+import { FilesService } from '../services/files.service';
 
 @Component({
   selector: 'app-employer-applied-jobs',
@@ -46,7 +47,7 @@ export class EmployerAppliedJobsComponent {
   cvData: any[] = [];
   cvDisplayedColumns: string[] = ['id', 'email', 'name', 'phone_number', 'degree', 'cgpa', 'institute', 'experience', 'location', 'passing_year', 'skills', 'actions'];
 
-  constructor(private store: Store, private serviceRouter: Router, private jobsService: JobsService, private applicationsService: ApplicationsService, private cvService: CoverletterService, private fb: FormBuilder) {
+  constructor(private store: Store, private serviceRouter: Router, private jobsService: JobsService, private applicationsService: ApplicationsService, private cvService: CoverletterService, private fb: FormBuilder, private filesService: FilesService) {
     this.form = this.fb.group({
       name: [''],
       email: [''],
