@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { FooterComponent } from "../footer/footer.component";
+import { ClientsCarouselComponent } from "../clients-carousel/clients-carousel.component";
 
 @Component({
   selector: 'app-employer',
@@ -40,7 +41,8 @@ import { FooterComponent } from "../footer/footer.component";
     MatSelectModule,
     MatInputModule,
     MatPaginatorModule,
-    FooterComponent
+    FooterComponent,
+    ClientsCarouselComponent
 ],
   templateUrl: './employer.component.html',
   styleUrl: './employer.component.css'

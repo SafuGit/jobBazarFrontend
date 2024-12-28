@@ -42,6 +42,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { EmployeeFooterComponent } from "../employee-footer/employee-footer.component";
+import { ClientsCarouselComponent } from "../clients-carousel/clients-carousel.component";
 
 
 @Component({
@@ -70,7 +71,8 @@ import { EmployeeFooterComponent } from "../employee-footer/employee-footer.comp
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    EmployeeFooterComponent
+    EmployeeFooterComponent,
+    ClientsCarouselComponent
 ],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
